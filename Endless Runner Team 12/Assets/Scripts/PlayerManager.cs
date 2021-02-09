@@ -6,8 +6,6 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
-    private Rigidbody rb;
-
     [Header("Stats")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float fireRate;
@@ -21,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<GameObject> bullets = new List<GameObject>();
 
     [Header("Jumping")]
-    [SerializeField] private float jumpForce;
+    [SerializeField] private GameObject playerObject;
 
     private void Awake()
     {
@@ -30,8 +28,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-
         // Initialize bullet pool
         if (bulletsInPool > 0)
         {
@@ -49,8 +45,8 @@ public class PlayerManager : MonoBehaviour
     {
         // Check for movement
         float xMovement = Input.GetAxisRaw("Horizontal");
-        // Applies input to map
-        MapRotation.instance.Rotate(new Vector3(0, 0, -xMovement * rotationSpeed * Time.deltaTime));
+        // Applies input to player
+        transform.Rotate(new Vector3(0, 0, xMovement * rotationSpeed * Time.deltaTime));
 
         // Firing
         fireTime += Time.deltaTime;
@@ -61,14 +57,8 @@ public class PlayerManager : MonoBehaviour
                 GameObject bullet = GetBulletFromPool();
                 bullet.transform.position = firePoint.position;
                 bullet.transform.rotation = firePoint.rotation;
-                bullet.GetComponentInChildren<Bullet>().ResetBullet();
                 fireTime = 0f;
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
     }
 
