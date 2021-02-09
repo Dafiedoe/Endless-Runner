@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't Veld, 533712 
 {
+    public static ObjectPool instance;
+    
     private List<GameObject> objectPool;
-    [SerializeField] GameObject prefabExample; //every pool object needs to be a prefab GameObject
+    [SerializeField] GameObject prefabObstacle;
     [SerializeField] private int setObjectAmount;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         objectPool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
         for (int i = 0; i < setObjectAmount; i++)
         {
-            GameObject SetNewPool = Instantiate(prefabExample);
+            GameObject SetNewPool = Instantiate(prefabObstacle);
             SetNewPool.SetActive(false);
-            objectPool.Add(prefabExample);
+            GenericHealth.objectPool = this;
+            objectPool.Add(prefabObstacle);
         }
     }
 
     public GameObject GetObjectFromPool() //retrieves an object from pool
     {
+        if (objectPool.Count == 0)
+        {
+            Debug.LogError("Empty");
+        }
         for (int i = 0; i < objectPool.Count; i++)
         {
-           if(!objectPool[i].activeSelf)
+            if (!objectPool[i].activeSelf)
             {
                 return objectPool[i];
             }
@@ -31,7 +43,7 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
         return null;
     }
 
-    public void destroyObject(GameObject PoolObject) //returns object to pool
+    public void returnObject(GameObject PoolObject) //returns object to pool
     {
         PoolObject.SetActive(false);
     }

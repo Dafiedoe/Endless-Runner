@@ -5,16 +5,11 @@ using UnityEngine;
 public class GenericHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
-    [SerializeField] private bool isPlayer;
+    [SerializeField] private bool isPlayer; //DOn't use health regen till fixed
     [SerializeField] private float regenRate;
     private float regenTime;
     public int Health { get; private set; }
     public static ObjectPool objectPool;
-
-    private void Awake()
-    {
-      //  objectPool = this; DIT HIER
-    }
 
     private void Start()
     {
@@ -48,6 +43,6 @@ public class GenericHealth : MonoBehaviour
 
     private void Die() //Return object to pool
     {
-        objectPool.destroyObject(gameObject); //DIT HIER
+        objectPool.returnObject(gameObject);
     }
 }
