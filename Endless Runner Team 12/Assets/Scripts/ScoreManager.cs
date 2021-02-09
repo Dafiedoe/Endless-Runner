@@ -30,7 +30,6 @@ public class ScoreManager : MonoBehaviour
     {
         Score += amount;
         UpdateHighScore();
-
     }
 
     public void UpdateHighScore() //method checks if score is greater than highscore, if so then highscore becomes equal to score and saved in playerprefs

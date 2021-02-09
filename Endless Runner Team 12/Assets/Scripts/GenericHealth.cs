@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class GenericHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth; //set starting health individually in Unity Inspector
-    public int Health { get; private set; } //other scripts can set value
+    [SerializeField] private int startingHealth;
+    [SerializeField] private bool isPlayer;
+    [SerializeField] private float regenRate;
+    private float regenTime;
+    public int Health { get; private set; }
+    public static ObjectPool objectPool;
+
+    private void Awake()
+    {
+      //  objectPool = this; DIT HIER
+    }
 
     private void Start()
     {
+        regenTime += Time.deltaTime;
         Health = startingHealth;
     }
 
@@ -21,8 +31,23 @@ public class GenericHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void RegenHealth(int amount) //Health regeneration, expand later
     {
-        Destroy(gameObject); //revise if necessary to prevent CTD
+        if (isPlayer == true)
+        {
+            if (true)
+            {
+                if (regenTime >= regenRate)
+                {
+                    Health += amount;
+                    regenTime = 0f;
+                }
+            }
+        }
+    }
+
+    private void Die() //Return object to pool
+    {
+        // objectPool.destroyObject(); DIT HIER
     }
 }
