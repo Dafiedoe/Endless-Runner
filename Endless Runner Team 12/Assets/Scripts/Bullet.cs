@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision");
         if (collision.gameObject.CompareTag("Background"))
         {
             PlayerManager.instance.ReturnBulletToPool(transform.parent.gameObject);

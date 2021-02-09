@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    private Rigidbody rb;
+
     [Header("Stats")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float fireRate;
@@ -19,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<GameObject> bullets = new List<GameObject>();
 
     [Header("Jumping")]
-    [SerializeField] private GameObject playerObject;
+    [SerializeField] private float jumpForce;
 
     private void Awake()
     {
@@ -28,6 +30,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         // Initialize bullet pool
         if (bulletsInPool > 0)
         {
@@ -60,6 +64,11 @@ public class PlayerManager : MonoBehaviour
                 bullet.GetComponentInChildren<Bullet>().ResetBullet();
                 fireTime = 0f;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
     }
 
