@@ -45,8 +45,8 @@ public class PlayerManager : MonoBehaviour
     {
         // Check for movement
         float xMovement = Input.GetAxisRaw("Horizontal");
-        // Applies input to player
-        transform.Rotate(new Vector3(0, 0, xMovement * rotationSpeed * Time.deltaTime));
+        // Applies input to map
+        MapRotation.instance.Rotate(new Vector3(0, 0, -xMovement * rotationSpeed * Time.deltaTime));
 
         // Firing
         fireTime += Time.deltaTime;
@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
                 GameObject bullet = GetBulletFromPool();
                 bullet.transform.position = firePoint.position;
                 bullet.transform.rotation = firePoint.rotation;
+                bullet.GetComponentInChildren<Bullet>().ResetBullet();
                 fireTime = 0f;
             }
         }
