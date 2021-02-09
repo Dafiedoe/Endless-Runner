@@ -18,6 +18,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private List<GameObject> bullets = new List<GameObject>();
 
+    [Header("Jumping")]
+    [SerializeField] private GameObject playerObject;
+
     private void Awake()
     {
         instance = this;

@@ -18,6 +18,7 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
             objectPool.Add(prefabExample);
         }
     }
+
     public GameObject GetObjectFromPool() //retrieves an object from pool
     {
         for (int i = 0; i < objectPool.Count; i++)
@@ -29,8 +30,9 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
         }
         return null;
     }
-    public void destroyObject(GameObject PoolObject, GameObject SetNewPool) //returns object to pool
+
+    public void destroyObject(GameObject PoolObject) //returns object to pool
     {
-        SetNewPool.SetActive(false);
+        PoolObject.SetActive(false);
     }
 }

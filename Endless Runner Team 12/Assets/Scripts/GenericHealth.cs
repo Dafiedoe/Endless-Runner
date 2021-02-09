@@ -48,6 +48,6 @@ public class GenericHealth : MonoBehaviour
 
     private void Die() //Return object to pool
     {
-        // objectPool.destroyObject(); DIT HIER
+        objectPool.destroyObject(gameObject); //DIT HIER
     }
 }
