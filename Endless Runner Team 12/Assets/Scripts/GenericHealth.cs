@@ -43,6 +43,6 @@ public class GenericHealth : MonoBehaviour
 
     private void Die() //Return object to pool
     {
-        objectPool.returnObject(gameObject);
+        objectPool.ReturnObject(gameObject);
     }
 }

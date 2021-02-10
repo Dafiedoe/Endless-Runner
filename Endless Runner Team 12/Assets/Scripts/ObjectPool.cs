@@ -5,9 +5,11 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't Veld, 533712 
 {
     public static ObjectPool instance;
-    
-    private List<GameObject> objectPool;
+
+    private List<GameObject> obstaclePool;
+    private List<GameObject> enemyPool;
     [SerializeField] GameObject prefabObstacle;
+    [SerializeField] GameObject prefabEnemy;
     [SerializeField] private int setObjectAmount;
 
     private void Awake()
@@ -17,33 +19,49 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
 
     private void Start()
     {
-        objectPool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
+        obstaclePool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
         for (int i = 0; i < setObjectAmount; i++)
         {
-            GameObject SetNewPool = Instantiate(prefabObstacle);
-            SetNewPool.SetActive(false);
+            GameObject NewObstacle = Instantiate(prefabObstacle);
+            NewObstacle.SetActive(false);
+            obstaclePool.Add(NewObstacle);
+        }
+
+        enemyPool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
+        for (int i = 0; i < setObjectAmount; i++)
+        {
+            GameObject NewEnemy = Instantiate(prefabEnemy);
+            NewEnemy.SetActive(false);
             GenericHealth.objectPool = this;
-            objectPool.Add(prefabObstacle);
+            obstaclePool.Add(NewEnemy);
         }
     }
 
-    public GameObject GetObjectFromPool() //retrieves an object from pool
+    public GameObject GetObstacleFromPool() //retrieves an object from pool
     {
-        if (objectPool.Count == 0)
+        for (int i = 0; i < obstaclePool.Count; i++)
         {
-            Debug.LogError("Empty");
-        }
-        for (int i = 0; i < objectPool.Count; i++)
-        {
-            if (!objectPool[i].activeSelf)
+           if (!obstaclePool[i].activeSelf)
             {
-                return objectPool[i];
+                return obstaclePool[i];
             }
         }
         return null;
     }
 
-    public void returnObject(GameObject PoolObject) //returns object to pool
+    public GameObject GetEnemyFromPool() //retrieves an object from pool
+    {
+        for (int i = 0; i < enemyPool.Count; i++)
+        {
+            if (!enemyPool[i].activeSelf)
+            {
+                return enemyPool[i];
+            }
+        }
+        return null;
+    }
+
+    public void ReturnObject(GameObject PoolObject) //returns object to pool
     {
         PoolObject.SetActive(false);
     }
