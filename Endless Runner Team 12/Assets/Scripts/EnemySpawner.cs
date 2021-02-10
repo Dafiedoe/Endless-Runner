@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField ]private Vector2 timeClamp;
+    [SerializeField] private Vector2 timeClamp;
     private float spawnTime;
     private float timer;
 
@@ -12,15 +12,15 @@ public class ObstacleSpawner : MonoBehaviour
     {
         timer = Random.Range(timeClamp.x, timeClamp.y);
     }
-    private void Update() //Activates an obstacle from pool with random position (rotation)
+    private void Update() //Activates an enemy from pool with random position (rotation)
     {
         spawnTime += Time.deltaTime;
         if (spawnTime >= timer)
         {
-            GameObject obstacle = ObjectPool.instance.GetObstacleFromPool();
-            obstacle.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 359));
-            obstacle.SetActive(true);
-            
+            GameObject enemy = ObjectPool.instance.GetEnemyFromPool();
+            enemy.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 359));
+            enemy.SetActive(true);
+
             spawnTime = 0;
             timer = Random.Range(timeClamp.x, timeClamp.y);
         }

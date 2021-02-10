@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private float removeLocation;
     [SerializeField] private Vector3 spawnLocation;
 
-    private void Start()
+    private void Start() //spawn location set down the cyllinder
     {
         transform.position = spawnLocation;
     }

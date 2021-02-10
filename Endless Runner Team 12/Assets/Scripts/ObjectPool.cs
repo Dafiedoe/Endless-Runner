@@ -19,22 +19,8 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
 
     private void Start()
     {
-        obstaclePool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
-        for (int i = 0; i < setObjectAmount; i++)
-        {
-            GameObject NewObstacle = Instantiate(prefabObstacle);
-            NewObstacle.SetActive(false);
-            obstaclePool.Add(NewObstacle);
-        }
-
-        enemyPool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
-        for (int i = 0; i < setObjectAmount; i++)
-        {
-            GameObject NewEnemy = Instantiate(prefabEnemy);
-            NewEnemy.SetActive(false);
-            GenericHealth.objectPool = this;
-            obstaclePool.Add(NewEnemy);
-        }
+        GenerateObstacleList();
+        GenerateEnemyList();
     }
 
     public GameObject GetObstacleFromPool() //retrieves an object from pool
@@ -64,5 +50,28 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
     public void ReturnObject(GameObject PoolObject) //returns object to pool
     {
         PoolObject.SetActive(false);
+    }
+
+    private void GenerateObstacleList()
+    {
+        obstaclePool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
+        for (int i = 0; i < setObjectAmount; i++)
+        {
+            GameObject NewObstacle = Instantiate(prefabObstacle);
+            NewObstacle.SetActive(false);
+            obstaclePool.Add(NewObstacle);
+        }
+    }
+
+    private void GenerateEnemyList()
+    {
+        enemyPool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
+        for (int i = 0; i < setObjectAmount; i++)
+        {
+            GameObject NewEnemy = Instantiate(prefabEnemy);
+            NewEnemy.SetActive(false);
+            GenericHealth.objectPool = this;
+            enemyPool.Add(NewEnemy);
+        }
     }
 }

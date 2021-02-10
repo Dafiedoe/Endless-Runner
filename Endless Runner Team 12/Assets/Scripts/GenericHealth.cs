@@ -26,16 +26,16 @@ public class GenericHealth : MonoBehaviour
         }
     }
 
-    public void RegenHealth(int amount) //Health regeneration, expand later
+    public void RegenHealth(int amount) //Health regeneration, needs testing
     {
         if (isPlayer == true)
         {
-            if (true)
+            if (startingHealth > Health)
             {
+            regenTime = 0f;
                 if (regenTime >= regenRate)
                 {
                     Health += amount;
-                    regenTime = 0f;
                 }
             }
         }
