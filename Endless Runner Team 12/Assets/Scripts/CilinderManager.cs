@@ -10,6 +10,7 @@ public class CilinderManager : MonoBehaviour
     [SerializeField] private string poolObjectName;
     [SerializeField] private Vector3 spawnLocation;
     [SerializeField] private Vector3[] firstSpawns;
+    [SerializeField] private Transform parent;
 
     [SerializeField] private GameObject cilinderPrefab;
     [SerializeField] private List<GameObject> cilinders = new List<GameObject>();
@@ -26,6 +27,7 @@ public class CilinderManager : MonoBehaviour
         {
             GameObject tempObject = Instantiate(cilinderPrefab);
             tempObject.name = poolObjectName + (i + 1);
+            tempObject.transform.parent = parent;
             tempObject.SetActive(false);
             cilinders.Add(tempObject);
         }

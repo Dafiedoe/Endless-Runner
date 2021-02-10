@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private List<GameObject> bullets = new List<GameObject>();
 
+    [SerializeField] private Transform bulletParent;
+
     [Header("Jumping")]
     [SerializeField] private float jumpForce;
 
@@ -39,6 +41,7 @@ public class PlayerManager : MonoBehaviour
             {
                 GameObject tempObject = Instantiate(bulletPrefab);
                 tempObject.name = bulletName + (i + 1);
+                tempObject.transform.parent = bulletParent;
                 tempObject.SetActive(false);
                 bullets.Add(tempObject);
             }
