@@ -24,6 +24,16 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Jumping")]
     [SerializeField] private float jumpForce;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private Transform feet;
+    [SerializeField] private LayerMask groundLayer;
+
+    [Header("Sliding")]
+    [SerializeField] private bool isSliding;
+    [SerializeField] private float slideTimer;
+    private float slideTime;
+    [SerializeField] private Vector3 regularRotation;
+    [SerializeField] private Vector3 slidingRotation;
 
     private void Awake()
     {
@@ -53,7 +63,8 @@ public class PlayerManager : MonoBehaviour
         // Check for movement
         float xMovement = Input.GetAxisRaw("Horizontal");
         // Applies input to player
-        MapRotation.instance.Rotate(new Vector3(0, 0, xMovement * rotationSpeed * Time.deltaTime));
+        if (!isSliding)
+            MapRotation.instance.Rotate(new Vector3(0, 0, xMovement * rotationSpeed * Time.deltaTime));
 
         // Firing
         fireTime += Time.deltaTime;
@@ -68,10 +79,32 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded && !isSliding)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
+        else if (Input.GetKeyDown(KeyCode.S) && isGrounded && !isSliding)
+        {
+            transform.Rotate(slidingRotation);
+            isSliding = true;
+            //transform.position += new Vector3(0f, 3.5f, 0f);
+        }
+
+        if (isSliding)
+        {
+            slideTime += Time.deltaTime;
+            if (slideTime >= slideTimer)
+            {
+                transform.Rotate(regularRotation);
+                isSliding = false;
+                slideTime = 0f;
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        isGrounded = Physics.Raycast(feet.position, -Vector3.up, .5f, groundLayer);
     }
 
     // Returns the first object in the bullet pool that's inactive

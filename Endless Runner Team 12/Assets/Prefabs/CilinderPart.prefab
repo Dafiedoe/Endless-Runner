@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5523943470937028153}
   - component: {fileID: 3850658278284222955}
   - component: {fileID: 7477483219604443745}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 515604581816281648}
   - component: {fileID: 895120173907406984}
   - component: {fileID: 895120173907406987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CilinderPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,8 +166,8 @@ GameObject:
   - component: {fileID: 7625494053781000591}
   - component: {fileID: 9055922466958133242}
   - component: {fileID: 3155831133649009324}
-  - component: {fileID: 48821476011461861}
-  m_Layer: 0
+  - component: {fileID: 1201542299016686544}
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &48821476011461861
+--- !u!64 &1201542299016686544
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
