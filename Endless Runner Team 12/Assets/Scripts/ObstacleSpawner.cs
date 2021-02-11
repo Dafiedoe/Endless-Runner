@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSpawner : MonoBehaviour //Temporary (?) obstacle spawner
+public class ObstacleSpawner : MonoBehaviour
 {
-    private float time = 7;
+    [SerializeField ]private Vector2 timeClamp;
     private float spawnTime;
-    private void Update()
+    private float timer;
+
+    private void Start()
+    {
+        timer = Random.Range(timeClamp.x, timeClamp.y);
+    }
+    private void Update() //Activates an obstacle from pool with random position (rotation)
     {
         spawnTime += Time.deltaTime;
-        if (spawnTime >= time)
+        if (spawnTime >= timer)
         {
-            ObjectPool.instance.GetObjectFromPool().SetActive(true);
+            GameObject obstacle = ObjectPool.instance.GetObstacleFromPool();
+            obstacle.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 359));
+            obstacle.SetActive(true);
+            
             spawnTime = 0;
+            timer = Random.Range(timeClamp.x, timeClamp.y);
         }
     }
 }
