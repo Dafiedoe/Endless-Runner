@@ -134,4 +134,13 @@ public class PlayerManager : MonoBehaviour
     {
         poolObject.SetActive(false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Killbox"))
+        {
+            // TODO: Kill Player
+            Debug.Log("Player died");
+        }
+    }
 }
