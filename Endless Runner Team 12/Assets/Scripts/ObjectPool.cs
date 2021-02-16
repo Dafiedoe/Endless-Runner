@@ -12,13 +12,14 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
          pod,
          fence,
          wall,
-         pipe
+         pipe,
+         divider
     }
 
     private List<List<GameObject>> obstaclePool;
-    private List<GameObject> teslaPool, podPool, fencePool, wallPool, pipePool;
+    private List<GameObject> teslaPool, podPool, fencePool, wallPool, pipePool, dividerPool;
     private List<GameObject> enemyPool;
-    [SerializeField] GameObject prefabTesla, prefabPod, prefabFence, prefabWall, prefabPipe;
+    [SerializeField] GameObject prefabTesla, prefabPod, prefabFence, prefabWall, prefabPipe, prefabDivider;
     [SerializeField] GameObject prefabEnemy;
     [SerializeField] private int setObjectAmount;
 
@@ -42,11 +43,13 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
         fencePool = new List<GameObject>();
         wallPool = new List<GameObject>();
         pipePool = new List<GameObject>();
+        dividerPool = new List<GameObject>();
         obstaclePool.Add(teslaPool);
         obstaclePool.Add(podPool);
         obstaclePool.Add(fencePool);
         obstaclePool.Add(wallPool);
         obstaclePool.Add(pipePool);
+        obstaclePool.Add(dividerPool);
     }
 
     public GameObject GetObstacleFromPool() //retrieves an object from pool
@@ -103,6 +106,9 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
             case ObstacleType.pipe:
                 pipePool.Add(newObject);
                 break;
+            case ObstacleType.divider:
+                dividerPool.Add(newObject);
+                break;
         }
     }
 
@@ -115,6 +121,7 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
             PrefabList(prefabPipe, ObstacleType.pipe);
             PrefabList(prefabWall, ObstacleType.wall);
             PrefabList(prefabPod, ObstacleType.pod);
+            PrefabList(prefabDivider, ObstacleType.divider);
         }
     }
 
