@@ -17,7 +17,7 @@ public class GenericHealth : MonoBehaviour
     public void TakeDamage(int damage) //Method can be called in other scripts to deal damage to entity's health
     {
         Health += damage;
-        if (Health == 0)
+        if (Health <= 0)
         {
             Die();
         }
@@ -29,7 +29,7 @@ public class GenericHealth : MonoBehaviour
         {
             if (startingHealth > Health)
             {
-                StartCoroutine("Cooldown", amount);               
+                StartCoroutine("Cooldown", amount);
             }
         }
     }

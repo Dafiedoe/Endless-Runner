@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CreditsManager : MonoBehaviour
 {
@@ -43,6 +44,11 @@ public class CreditsManager : MonoBehaviour
             case CreditsState.scrolling:
                 scrollingObject.position += new Vector3(0, scrollSpeed * Time.deltaTime, 0);
                 break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

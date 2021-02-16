@@ -26,6 +26,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (spawnTime >= timer)
         {
             GameObject obstacle = ObjectPool.instance.GetObstacleFromPool();
+            Debug.Log("Spawning " + obstacle);
             obstacle.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 359));
             obstacle.SetActive(true);
             

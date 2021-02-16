@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1409157770869340403}
   - component: {fileID: 1409157770869340402}
   - component: {fileID: 1409157770869340401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CilinderPart New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 6308187580058428554}
   - component: {fileID: 8101932193300418624}
   - component: {fileID: 7741445967040655766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,4 +155,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -6528314206386055169, guid: 1db3d358075efbe4eacdd22c56f4b209, type: 3}
+  m_Mesh: {fileID: -2046330310928635541, guid: 9308791d61619b0488dc1ca26aa818d2, type: 3}

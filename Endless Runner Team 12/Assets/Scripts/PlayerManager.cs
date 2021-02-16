@@ -64,7 +64,7 @@ public class PlayerManager : MonoBehaviour
         float xMovement = Input.GetAxisRaw("Horizontal");
         // Applies input to player
         if (!isSliding)
-            MapRotation.instance.Rotate(new Vector3(0, 0, xMovement * rotationSpeed * Time.deltaTime));
+            MapRotation.instance.Rotate(new Vector3(0, 0, -xMovement * rotationSpeed * Time.deltaTime));
 
         // Firing
         fireTime += Time.deltaTime;
@@ -141,7 +141,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.GetComponent<CollisionTag>())
         {
             playerHealth.TakeDamage(-1);
-            playerHealth.RegenHealth(+1);
+            playerHealth.RegenHealth(1);
         }
 
         if (other.CompareTag("Killbox"))
