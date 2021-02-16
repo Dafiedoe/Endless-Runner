@@ -8,7 +8,11 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
 
     private List<GameObject> obstaclePool;
     private List<GameObject> enemyPool;
-    [SerializeField] GameObject prefabObstacle;
+    [SerializeField] GameObject prefabTesla;
+    [SerializeField] GameObject prefabPod;
+    [SerializeField] GameObject prefabFence;
+    [SerializeField] GameObject prefabWall;
+    [SerializeField] GameObject prefabPipe;
     [SerializeField] GameObject prefabEnemy;
     [SerializeField] private int setObjectAmount;
 
@@ -52,14 +56,23 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
         PoolObject.SetActive(false);
     }
 
+    private void PrefabList(GameObject newObject) //function for new prefabs obstaclelist
+    {
+        newObject = Instantiate(newObject);
+        newObject.SetActive(false);
+        obstaclePool.Add(newObject);
+    }
+
     private void GenerateObstacleList()
     {
         obstaclePool = new List<GameObject>(); //creates object pool based on set amount, pool can be extended
         for (int i = 0; i < setObjectAmount; i++)
         {
-            GameObject NewObstacle = Instantiate(prefabObstacle);
-            NewObstacle.SetActive(false);
-            obstaclePool.Add(NewObstacle);
+            PrefabList(prefabTesla);
+            PrefabList(prefabFence);
+            PrefabList(prefabPipe);
+            PrefabList(prefabWall);
+            PrefabList(prefabPod);
         }
     }
 
