@@ -83,9 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a0ec5685afb0c46a1e34cf2677b08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   speed: 20
   removeLocation: -50
-  spawnLocation: {x: 0, y: 0, z: 500}
+  spawnLocation: {x: 0, y: 0, z: 200}
 --- !u!1001 &3486491559144708167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,15 +100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
       propertyPath: m_LocalScale.x
-      value: 11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
       propertyPath: m_LocalScale.y
-      value: 11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
       propertyPath: m_LocalScale.z
-      value: 11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
       propertyPath: m_LocalPosition.x
