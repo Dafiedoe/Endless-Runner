@@ -137,9 +137,16 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GenericHealth playerHealth = GetComponent<GenericHealth>();
+        if (other.gameObject.GetComponent<CollisionTag>())
+        {
+            playerHealth.TakeDamage(-1);
+            playerHealth.RegenHealth(+1);
+        }
+
         if (other.CompareTag("Killbox"))
         {
-            // TODO: Kill Player
+            playerHealth.TakeDamage(-int.MaxValue);
             Debug.Log("Player died");
         }
     }

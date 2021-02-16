@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    public ObjectPool.ObstacleType type;
     [SerializeField] private float speed;
     [SerializeField] private float removeLocation;
     [SerializeField] private Vector3 spawnLocation;
