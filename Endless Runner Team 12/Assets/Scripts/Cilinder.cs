@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,11 @@ public class Cilinder : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float removeLocation;
 
+    private void Start()
+    {
+        CilinderManager.instance.diffEvent += IncreaseSpeed;
+    }
+
     private void Update()
     {
         // Moves the map part at the given speed
@@ -14,5 +20,10 @@ public class Cilinder : MonoBehaviour
 
         if (transform.position.z <= removeLocation)
             CilinderManager.instance.ReturnToPool(gameObject);
+    }
+
+    public void IncreaseSpeed(float amount)
+    {
+        speed += amount;
     }
 }

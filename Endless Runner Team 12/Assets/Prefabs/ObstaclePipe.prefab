@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a0ec5685afb0c46a1e34cf2677b08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 20
   removeLocation: -50
   spawnLocation: {x: 0, y: 0, z: 500}
 --- !u!114 &1295872763584598922

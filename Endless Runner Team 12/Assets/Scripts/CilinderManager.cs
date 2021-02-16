@@ -15,6 +15,9 @@ public class CilinderManager : MonoBehaviour
     [SerializeField] private GameObject cilinderPrefab;
     [SerializeField] private List<GameObject> cilinders = new List<GameObject>();
 
+    public delegate void DifficultyEvent(float increase);
+    public event DifficultyEvent diffEvent;
+
     private void Awake()
     {
         instance = this;
@@ -38,6 +41,11 @@ public class CilinderManager : MonoBehaviour
             cilinder.transform.position = firstSpawns[i];
             cilinder.SetActive(true);
         }
+    }
+
+    public void CallDifficultyEvent(float amount)
+    {
+        diffEvent.Invoke(amount);
     }
 
     // Returns the first inactive cilinder in the pool

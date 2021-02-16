@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField ]private Vector2 timeClamp;
+    public static ObstacleSpawner instance;
+
+    public Vector2 timeClamp;
     private float spawnTime;
     private float timer;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         timer = Random.Range(timeClamp.x, timeClamp.y);
     }
+
     private void Update() //Activates an obstacle from pool with random position (rotation)
     {
         spawnTime += Time.deltaTime;
