@@ -760,7 +760,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 44.7}
   - {x: 0, y: 0, z: 67}
   parent: {fileID: 460432658}
-  cilinderPrefab: {fileID: 895120173907406986, guid: 7ab949179f6695a4a9c3771788d7691a, type: 3}
+  cilinderPrefab: {fileID: 1409157770869340400, guid: 18331aa8bb809c9489183f97e6c3e172, type: 3}
   cilinders: []
 --- !u!1 &1155542752
 GameObject:
@@ -1850,6 +1850,7 @@ GameObject:
   - component: {fileID: 4139733573230399692}
   - component: {fileID: 4139733573230399691}
   - component: {fileID: 4139733573230399690}
+  - component: {fileID: 4139733573230399693}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1916,6 +1917,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4139733573230399693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139733573230399689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bd99e4ab1338945a437545a6c24350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 2
+  isPlayer: 1
 --- !u!1 &4779843402606784393
 GameObject:
   m_ObjectHideFlags: 0
