@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1409157770869340402}
   - component: {fileID: 1409157770869340401}
   m_Layer: 8
-  m_Name: CilinderPart New
+  m_Name: Cilinder Window Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
