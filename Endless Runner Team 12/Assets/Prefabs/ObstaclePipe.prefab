@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4160695615060516233}
   - component: {fileID: 8501070725543976469}
   - component: {fileID: 1295872763584598922}
-  - component: {fileID: 515349208442078265}
   m_Layer: 0
   m_Name: ObstaclePipe
   m_TagString: Untagged
@@ -49,7 +48,6 @@ MonoBehaviour:
   type: 0
   speed: 6.25
   removeLocation: -50
-  spawnLocation: {x: 0, y: 0, z: 200}
 --- !u!114 &1295872763584598922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,18 +58,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19393ca7a93c74ba26f355ecf0bb2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &515349208442078265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665622229517748659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!64 &1775780197853644377
@@ -98,6 +84,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7559361683420178488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623181805884069378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c04931b62c0b4642a527d8065c9bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2929028769466411859

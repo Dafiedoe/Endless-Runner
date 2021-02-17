@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9035806888861815114}
   - component: {fileID: 2477370505307157930}
   - component: {fileID: 142641459338242642}
-  - component: {fileID: 940459652135709766}
   m_Layer: 0
   m_Name: ObstacleWall
   m_TagString: Untagged
@@ -49,7 +48,6 @@ MonoBehaviour:
   type: 0
   speed: 6.25
   removeLocation: -50
-  spawnLocation: {x: 0, y: 0, z: 200}
 --- !u!114 &142641459338242642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,18 +58,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19393ca7a93c74ba26f355ecf0bb2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &940459652135709766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6274927369088746723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!64 &197161545383728286
@@ -98,6 +84,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7934356347499444325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765631118127539921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c04931b62c0b4642a527d8065c9bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7423191721451395968

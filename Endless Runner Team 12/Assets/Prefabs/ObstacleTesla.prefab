@@ -26,6 +26,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3920803876966040379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886508152866386421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c04931b62c0b4642a527d8065c9bd7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3245777107594497208
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,7 +49,6 @@ GameObject:
   - component: {fileID: 8752118110890559531}
   - component: {fileID: 6958466301739615901}
   - component: {fileID: 4016553546628876455}
-  - component: {fileID: 5781111764552448995}
   m_Layer: 0
   m_Name: ObstacleTesla
   m_TagString: Untagged
@@ -75,7 +86,6 @@ MonoBehaviour:
   type: 0
   speed: 6.25
   removeLocation: -50
-  spawnLocation: {x: 0, y: 0, z: 200}
 --- !u!114 &4016553546628876455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,18 +96,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19393ca7a93c74ba26f355ecf0bb2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5781111764552448995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3245777107594497208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c04931b62c0b4642a527d8065c9bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &39665595777256612

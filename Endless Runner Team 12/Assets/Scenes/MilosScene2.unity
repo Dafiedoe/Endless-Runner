@@ -802,6 +802,7 @@ MonoBehaviour:
   prefabFence: {fileID: 8199588573997705785, guid: 9a201d36e1d199645aa759c1b259a336, type: 3}
   prefabWall: {fileID: 6274927369088746723, guid: 31061b15601a22f4a93be214c446ad81, type: 3}
   prefabPipe: {fileID: 665622229517748659, guid: 3ed409793a63293439d3cd4a012b51f6, type: 3}
+  prefabDivider: {fileID: 0}
   prefabEnemy: {fileID: 239898819137419358, guid: ee63d0a8534d9454096535a02efb6549, type: 3}
   setObjectAmount: 50
 --- !u!114 &453853891
