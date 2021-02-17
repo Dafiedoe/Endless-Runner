@@ -12,7 +12,7 @@ public class CilinderManager : MonoBehaviour
     [SerializeField] private Vector3[] firstSpawns;
     [SerializeField] private Transform parent;
 
-    [SerializeField] private GameObject cilinderPrefab;
+    [SerializeField] private GameObject[] cilinderPrefab;
     [SerializeField] private List<GameObject> cilinders = new List<GameObject>();
 
     public delegate void DifficultyEvent(float increase);
@@ -28,7 +28,7 @@ public class CilinderManager : MonoBehaviour
         // Initializes the cilinder pool
         for (int i = 0; i < amount; i++)
         {
-            GameObject tempObject = Instantiate(cilinderPrefab);
+            GameObject tempObject = Instantiate(cilinderPrefab[Random.Range(0, cilinderPrefab.Length)]);
             tempObject.name = poolObjectName + (i + 1);
             tempObject.transform.parent = parent;
             tempObject.SetActive(false);

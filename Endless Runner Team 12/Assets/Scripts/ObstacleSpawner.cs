@@ -10,6 +10,12 @@ public class ObstacleSpawner : MonoBehaviour
     private float spawnTime;
     private float timer;
 
+    public delegate void DifficultyEvent(float increase);
+    public event DifficultyEvent diffEvent;
+
+    [SerializeField] private float currentSpeed;
+    [SerializeField] private Transform obstacleSpawnLocation;
+
     private void Awake()
     {
         instance = this;
@@ -26,12 +32,19 @@ public class ObstacleSpawner : MonoBehaviour
         if (spawnTime >= timer)
         {
             GameObject obstacle = ObjectPool.instance.GetObstacleFromPool();
-            Debug.Log("Spawning " + obstacle);
+            obstacle.GetComponent<Obstacle>().speed = currentSpeed;
+            obstacle.transform.position = obstacleSpawnLocation.position;
             obstacle.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 359));
             obstacle.SetActive(true);
             
             spawnTime = 0;
             timer = Random.Range(timeClamp.x, timeClamp.y);
         }
+    }
+
+    public void CallDifficultyIncrease(float amount)
+    {
+        diffEvent.Invoke(amount);
+        currentSpeed += amount;
     }
 }

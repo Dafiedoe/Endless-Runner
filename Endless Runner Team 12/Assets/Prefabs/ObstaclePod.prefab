@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 5519659797926400549}
   - component: {fileID: 7915329874432157801}
   - component: {fileID: 7431268077483500874}
+  - component: {fileID: 7901429136001469440}
   m_Layer: 0
   m_Name: ObstaclePod
   m_TagString: Untagged
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  speed: 20
+  speed: 6.25
   removeLocation: -50
   spawnLocation: {x: 0, y: 0, z: 200}
 --- !u!114 &7431268077483500874
@@ -85,6 +86,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19393ca7a93c74ba26f355ecf0bb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7901429136001469440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580300415220609940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7919950966850560978

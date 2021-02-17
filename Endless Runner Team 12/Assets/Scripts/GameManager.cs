@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [Header("Score over Time")]
     [SerializeField] private int scoreToAdd;
     [SerializeField] private float secondsPerScore;
@@ -15,6 +18,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float diffIncreaseTime;
     [SerializeField] private float increaseSpeed;
     [SerializeField] private float increaseObstacleSpawnRate;
+
+    [Header("Game Over")]
+    [SerializeField] private GameObject gameOverScreen;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -40,5 +51,26 @@ public class GameManager : MonoBehaviour
     {
         CilinderManager.instance.CallDifficultyEvent(increaseSpeed);
         ObstacleSpawner.instance.timeClamp -= new Vector2(increaseObstacleSpawnRate, increaseObstacleSpawnRate);
+        ObstacleSpawner.instance.CallDifficultyIncrease(increaseSpeed);
+    }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

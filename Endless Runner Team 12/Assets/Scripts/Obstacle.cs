@@ -5,13 +5,12 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public ObjectPool.ObstacleType type;
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private float removeLocation;
-    [SerializeField] private Vector3 spawnLocation;
 
     private void Start() //spawn location set down the cyllinder
     {
-        transform.position = spawnLocation;
+        ObstacleSpawner.instance.diffEvent += IncreaseDifficulty;
     }
 
     private void Update()
@@ -21,5 +20,10 @@ public class Obstacle : MonoBehaviour
 
         if (transform.position.z <= removeLocation)
             ObjectPool.instance.ReturnObject(gameObject);
+    }
+
+    public void IncreaseDifficulty(float amount)
+    {
+        speed += amount;
     }
 }

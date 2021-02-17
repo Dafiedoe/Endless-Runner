@@ -6,6 +6,7 @@ public class GenericHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
     [SerializeField] private bool isPlayer;
+
     public int Health { get; private set; }
     public static ObjectPool objectPool;
 
@@ -25,6 +26,8 @@ public class GenericHealth : MonoBehaviour
 
     public void RegenHealth(int amount) //Health regeneration check
     {
+        if (!gameObject) return;
+
         if (isPlayer == true)
         {
             if (startingHealth > Health)
@@ -43,5 +46,6 @@ public class GenericHealth : MonoBehaviour
     private void Die() //Return object to pool
     {
         objectPool.ReturnObject(gameObject);
+        GameManager.instance.GameOver();
     }
 }

@@ -1073,6 +1073,7 @@ GameObject:
   - component: {fileID: 5023204387316698327}
   - component: {fileID: 1372929583323573652}
   - component: {fileID: 7380825946231474873}
+  - component: {fileID: 4898646776096042080}
   m_Layer: 0
   m_Name: ObstacleFence
   m_TagString: Untagged
@@ -1120,9 +1121,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  speed: 20
+  speed: 6.25
   removeLocation: -50
   spawnLocation: {x: 0, y: 0, z: 200}
+--- !u!114 &4898646776096042080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199588573997705785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc2810d9bd6a474f89fc9b8e2130d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8227278404863863933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,13 +1505,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
---- !u!4 &4028532421565267884 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
-  m_PrefabInstance: {fileID: 3486491559144708167}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4369591460140082454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
+  m_PrefabInstance: {fileID: 3486491559144708167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4028532421565267884 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3357d48c2327c9a48a3b5e32df36a660, type: 3}
   m_PrefabInstance: {fileID: 3486491559144708167}
   m_PrefabAsset: {fileID: 0}

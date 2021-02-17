@@ -22,6 +22,8 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
     [SerializeField] GameObject prefabTesla, prefabPod, prefabFence, prefabWall, prefabPipe, prefabDivider;
     [SerializeField] GameObject prefabEnemy;
     [SerializeField] private int setObjectAmount;
+    [SerializeField] private Transform obstacleParent;
+    [SerializeField] private Transform enemyParent;
 
     private void Awake()
     {
@@ -88,6 +90,7 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
     private void PrefabList(GameObject newObject, ObstacleType type) //function for new prefabs obstaclelist
     {
         newObject = Instantiate(newObject);
+        newObject.transform.parent = obstacleParent;
         newObject.SetActive(false);
         switch (type)
         {
@@ -131,6 +134,7 @@ public class ObjectPool : MonoBehaviour //Shamelessly stolen from Bryan van 't V
         for (int i = 0; i < setObjectAmount; i++)
         {
             GameObject NewEnemy = Instantiate(prefabEnemy);
+            NewEnemy.transform.parent = enemyParent;
             NewEnemy.SetActive(false);
             GenericHealth.objectPool = this;
             enemyPool.Add(NewEnemy);
