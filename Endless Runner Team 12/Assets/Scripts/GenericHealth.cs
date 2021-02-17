@@ -6,13 +6,17 @@ public class GenericHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
     [SerializeField] private bool isPlayer;
+    private bool invulnerable;
 
     public int Health { get; private set; }
     public static ObjectPool objectPool;
+    public static Chaser chaser;
+    [SerializeField] GameObject prefabChaser;
 
     private void Start()
     {
         Health = startingHealth;
+        invulnerable = false;
     }
 
     public void TakeDamage(int damage) //Method can be called in other scripts to deal damage to entity's health
@@ -33,6 +37,8 @@ public class GenericHealth : MonoBehaviour
             if (startingHealth > Health)
             {
                 StartCoroutine("Cooldown", amount);
+                //StartCoroutine("Invulnerable"); - needs testing/fixing
+                chaser.ChaserApproach(prefabChaser);
             }
         }
     }
@@ -40,7 +46,15 @@ public class GenericHealth : MonoBehaviour
     IEnumerator Cooldown(int amount) //Health regen and cooldown
     {
         yield return new WaitForSeconds(7);
+        chaser.ChaserLeave(prefabChaser);
         Health += amount;
+    }
+
+    IEnumerator Invulnerable(int amount) //Invulnerability upon receiving damage - needs testing/fixing
+    {
+        yield return new WaitForSeconds(4);
+        //make player flicker
+        invulnerable = false;
     }
 
     private void Die() //Return object to pool
