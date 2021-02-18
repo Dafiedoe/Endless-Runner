@@ -5,20 +5,27 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     public static Chaser instance;
+    public static PlayerManager playerManager;
+    private GenericHealth playerHealth;
 
     private void Awake() //singleton
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        playerHealth = PlayerManager.instance.GetComponent<GenericHealth>();
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (playerHealth.startingHealth > playerHealth.Health)
         {
             ChaserApproach();
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (playerHealth.Health >= playerHealth.startingHealth)
         {
             ChaserLeave();
         }
