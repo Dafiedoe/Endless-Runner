@@ -76,6 +76,8 @@ public class PlayerManager : MonoBehaviour
                 bullet.transform.position = firePoint.position;
                 bullet.transform.rotation = firePoint.rotation;
                 fireTime = 0f;
+
+                SoundManager.instance.PlaySound(SoundManager.SoundType.Shooting);
             }
         }
 
@@ -141,7 +143,8 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.GetComponent<CollisionTag>())
         {
             playerHealth.TakeDamage(-1);
-            playerHealth.RegenHealth(1); //if !null check om de cooldown inactive player error te fixen
+            if (gameObject)
+                playerHealth.RegenHealth(1);
         }
 
         if (other.CompareTag("Killbox"))
