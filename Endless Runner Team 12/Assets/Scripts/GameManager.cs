@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverScreen;
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (isGameOver) return;
+
         scoreTime += Time.deltaTime;
         if (scoreTime >= secondsPerScore)
         {
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
+        isGameOver = true;
     }
 
     public void Retry()
