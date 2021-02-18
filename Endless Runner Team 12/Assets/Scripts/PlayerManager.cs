@@ -141,7 +141,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.GetComponent<CollisionTag>())
         {
             playerHealth.TakeDamage(-1);
-            playerHealth.RegenHealth(1);
+            playerHealth.RegenHealth(1); //if !null check om de cooldown inactive player error te fixen
         }
 
         if (other.CompareTag("Killbox"))
