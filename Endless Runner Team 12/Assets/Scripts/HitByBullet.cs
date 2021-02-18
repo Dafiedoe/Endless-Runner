@@ -14,7 +14,10 @@ public class HitByBullet : MonoBehaviour
             {
                 Debug.Log("Hit2");
                 ObjectPool.instance.ReturnObject(gameObject);
+                SoundManager.instance.PlaySound(SoundManager.SoundType.Kill);
             }
+            else
+                SoundManager.instance.PlaySound(SoundManager.SoundType.Hit);
         }
     }
 }
